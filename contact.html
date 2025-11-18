@@ -1,0 +1,71 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><title>Contact — Equip Leadership Liberia</title><link rel="stylesheet" href="css/style.css"></head><body>
+  <!-- Header -->
+  <header class="header" role="banner">
+    <div class="container">
+      <a class="brand" href="index.html" aria-label="Equip Leadership Liberia">
+        <span class="logo" aria-hidden="true"></span>
+        <span class="title"><span class="title-main">EQUIP</span><br><small>Leadership Liberia</small></span>
+      </a>
+
+      <nav class="nav" role="navigation" aria-label="primary">
+        <ul>
+          <li><a href="index.html" class="active">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="services.html">Programs</a></li>
+          <li><a href="team.html">Team</a></li>
+          <li><a href="news.html">News</a></li>
+          <li><a href="facilitator.html">Facilitator</a></li>
+          <li><a href="contact.html" class="btn-outline">Contact</a></li>
+        </ul>
+      </nav>
+
+      <!-- hamburger for small screens -->
+      <div class="hamburger" aria-hidden="true" onclick="document.querySelector('.nav ul').classList.toggle('show')">
+        <svg width="34" height="24" viewBox="0 0 24 24" fill="none"><path d="M3 6h18M3 12h18M3 18h18" stroke="#d4af37" stroke-width="1.7" stroke-linecap="round"></path></svg>
+      </div>
+    </div>
+  </header>
+
+<main>
+  <section class="section">
+    <div class="container">
+      <div class="section-head"><h2>Contact Us</h2><p class="small">Get in touch for programs, partnerships or donations.</p></div>
+
+      <div class="two-col">
+        <div class="card">
+          <h3>Office</h3>
+          <p>2nd Floor Moye Building, Adjacent 7nd Total Gas Station, 72nd Community, Paynesville</p>
+          <p>Tel: +231 88 698 9580<br>Email: <a href="mailto:eliberiaproject@gmail.com">eliberiaproject@gmail.com</a></p>
+          <h4>Bank Donation</h4>
+          <p>We accept cash & check at our office. For bank transfers please contact us for account details.</p>
+        </div>
+
+        <form class="form" action="mailto:eliberiaproject@gmail.com" method="post" enctype="text/plain">
+          <label>Your name<input type="text" name="name" required></label>
+          <label>Your email<input type="email" name="email" required></label>
+          <label>Subject<input type="text" name="subject"></label>
+          <label>Message<textarea name="message" required></textarea></label>
+          <div style="margin-top:12px"><button type="submit">Send message</button></div>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+<!-- Footer -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div>
+        <strong>Equip Leadership Liberia</strong>
+        <p class="small">A subsidiary of Equip Leadership Global • © <span id="year"></span></p>
+      </div>
+      <nav>
+        <ul class="footer-links">
+          <li><a href="about.html">About</a></li>
+          <li><a href="services.html">Programs</a></li>
+          <li><a href="team.html">Team</a></li>
+          <li><a href="news.html">News</a></li>
+        </ul>
+      </nav>
+    </div>
+  </footer>
+</body></html>

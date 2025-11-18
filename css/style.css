@@ -1,0 +1,195 @@
+/* css/style.css
+   Shining Dark Gold • Black • White — bold & visible background only
+   Headings, typography, layout and structure are intentionally NOT changed.
+*/
+
+:root{
+  /* Darkened & shining gold variables */
+  --gold: #b8860b;       /* dark metallic gold (darker) */
+  --gold-2: #ffd700;     /* bright shining gold highlight */
+  --gold-3: #fff6d1;     /* pale gold for subtle backgrounds */
+  --black: #362903;      /* deep black */
+  --white: #ffffff;      /* pure white */
+  --soft: #f6f6f6;       /* neutral light for cards */
+  --muted: #6b6b6b;
+  --glass: rgba(255,255,255,0.92);
+  --max-width: 1200px;
+  --radius: 12px;
+  --shadow-strong: 0 20px 48px rgb(255, 169, 10);
+  --shadow-soft: 0 8px 20px rgb(141, 94, 6);
+  --glow: 0 18px 48px rgba(245, 244, 242, 0.993);
+  --ff-sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+  --ff-serif: "Merriweather", serif;
+}
+
+/* Reset & base */
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family:var(--ff-sans);
+  color:var(--black);
+
+  /* === DARK, SHINING BACKGROUND (bold gold glints + deep black) === */
+  background:
+    /* bright shining glint — larger and stronger */
+    radial-gradient(circle at 14% 10%, rgba(238, 176, 5, 0.986), transparent 8%),
+    /* deeper metallic glint */
+    radial-gradient(circle at 86% 92%, rgb(224, 223, 219), transparent 12%),
+    /* darker base gradient for depth */
+    linear-gradient(180deg, #945503 0%, #e99903 30%, #f1a204 100%);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  line-height:1.6;
+}
+.container{width:92%;max-width:var(--max-width);margin:0 auto;padding:28px 0}
+
+/* Typography helpers */
+.lead{color:var(--muted);max-width:64ch}
+.small{font-size:.92rem;color:var(--muted)}
+
+/* Link focus for accessibility */
+a:focus{outline:3px solid rgba(255,215,0,0.20);outline-offset:4px;border-radius:6px}
+
+/* ===== Buttons & CTA shimmer (unchanged structure, stronger glow) ===== */
+.btn{
+  display:inline-block;
+  padding:10px 16px;
+  border-radius:12px;
+  color:var(--black);
+  font-weight:800;
+  text-decoration:none;
+  /* keep gold gradient but darker start for weight */
+  background: linear-gradient(135deg, var(--gold), var(--gold-2));
+  box-shadow: var(--glow), 0 8px 22px rgba(11,11,11,0.08);
+  border: 1px solid rgba(0,0,0,0.06);
+  transition: transform .18s ease, box-shadow .18s ease;
+  position:relative;
+  overflow:hidden;
+}
+.btn::after{
+  /* subtle shimmer sweep preserved */
+  content:"";
+  position:absolute;inset:0;
+  background: linear-gradient(120deg, rgba(255,255,255,0.0) 0%, rgba(255,255,255,0.30) 50%, rgba(255,255,255,0.0) 100%);
+  transform: translateX(-120%);
+  transition: transform .9s cubic-bezier(.2,.9,.3,1);
+  pointer-events:none;
+}
+.btn:hover{ transform: translateY(-4px); box-shadow: 0 26px 60px rgba(184,134,11,0.22); }
+.btn:hover::after{ transform: translateX(120%); }
+
+/* Outline CTA (gold border) */
+.btn-outline{
+  display:inline-block;padding:9px 12px;border-radius:12px;font-weight:700;color:var(--gold);
+  background:transparent;border:2px solid rgba(184,134,11,0.22);transition:background .15s, color .15s;
+}
+.btn-outline:hover{ background: linear-gradient(180deg, rgba(184,134,11,0.06), rgba(255,255,255,0.02)); color:var(--black) }
+
+/* Ghost link */
+.link-ghost{ color:var(--white); text-decoration:underline }
+
+/* ===== Header / Nav (darker sheen) ===== */
+.header{
+  background: linear-gradient(90deg, var(--black), #0f0f0f);
+  color:var(--gold);
+  position: sticky; top:0; z-index:90;
+  box-shadow: 0 12px 44px rgba(0,0,0,0.36);
+}
+.header .container{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--gold)}
+.brand .logo{width:52px;height:52px;border-radius:12px;background:linear-gradient(180deg,var(--gold),var(--gold-2));box-shadow:inset 0 -8px rgba(0,0,0,0.10)}
+.brand .title{font-family:var(--ff-serif);font-size:18px;color:var(--white);line-height:1}
+.nav{display:flex;gap:14px;align-items:center}
+.nav ul{list-style:none;display:flex;gap:10px;margin:0;padding:0}
+.nav a{color:#fff;padding:8px 10px;border-radius:8px;font-weight:700}
+.nav a:hover{background:rgba(255,215,0,0.08);color:var(--black)}
+
+/* hamburger fallback */
+.hamburger{display:none}
+
+/* ===== Hero (darker metallic feel + stronger gold sheen) ===== */
+.hero{
+  padding:72px 0 30px;
+  background:
+    radial-gradient(circle at 12% 8%, rgba(184,134,11,0.12), transparent 10%),
+    radial-gradient(circle at 88% 92%, rgba(255,215,0,0.06), transparent 12%),
+    linear-gradient(180deg, rgba(11,11,11,0.90), rgba(15,15,15,0.95));
+  border-bottom: 1px solid rgba(255,215,0,0.04);
+}
+.hero-grid{display:grid;grid-template-columns:1fr 480px;gap:30px;align-items:center}
+.hero-quote{
+  background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,252,240,0.01));
+  padding:22px;border-radius:14px;box-shadow:0 12px 30px rgba(0,0,0,0.45);border-left:6px solid var(--gold);
+}
+.hero-quote p{margin:0;font-family:var(--ff-serif);font-size:20px;color:var(--white)}
+.hero-quote cite{display:block;margin-top:10px;color:var(--muted);font-size:13px}
+.hero h1{font-family:var(--ff-serif);font-size:36px;margin:14px 0;color:var(--gold-2)}
+.lead{margin-top:8px;color:var(--soft)}
+
+/* media card with stronger gold border */
+.media-card{border-radius:14px;overflow:hidden;box-shadow:var(--shadow-strong);border:6px solid rgba(255,215,0,0.08);background:var(--white)}
+.media-card img,.media-card video{display:block;width:100%;height:auto}
+
+/* stats */
+.stats{display:flex;gap:12px;margin-top:18px;flex-wrap:wrap}
+.stat{background:var(--white);padding:12px;border-radius:12px;box-shadow:var(--shadow-soft);text-align:center;min-width:96px}
+.stat strong{display:block;font-size:18px;color:var(--black)}
+
+/* ===== Sections & alternating backgrounds ===== */
+.section{padding:48px 0}
+.section.alt{
+  /* darker alt section with faint gold wash for rhythm */
+  background: linear-gradient(180deg, rgba(10,10,10,0.95) 0%, rgba(12,12,12,0.96) 100%);
+  color:var(--white);
+}
+.section-head{text-align:center;margin-bottom:20px}
+.section-head h2{font-family:var(--ff-serif);font-size:24px;margin:0}
+
+/* grids & cards */
+.card{background:var(--soft);padding:18px;border-radius:14px;box-shadow:var(--shadow-soft)}
+.responsive{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+
+/* team */
+.team-member{text-align:center;padding:18px;border-radius:12px;background:linear-gradient(180deg,#111,#0b0b0b);color:var(--gold)}
+.team-member img{width:120px;height:120px;border-radius:50%;object-fit:cover;border:5px solid rgba(255,215,0,0.08);margin-bottom:12px}
+
+/* news */
+.news-card{display:flex;gap:12px;align-items:flex-start;padding:12px;background:var(--soft);border-radius:12px;box-shadow:var(--shadow-soft)}
+.news-card img{width:96px;height:72px;object-fit:cover;border-radius:8px}
+
+/* forms */
+.form{background:var(--soft);padding:16px;border-radius:12px;box-shadow:var(--shadow-soft)}
+.form input,.form textarea{width:100%;padding:10px;border-radius:8px;border:1px solid #eee;margin-top:8px}
+.form .form-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.form button{background:var(--black);color:var(--gold);padding:10px 14px;border-radius:10px;border:none;font-weight:800}
+
+/* footer (heavier black with gold top glow) */
+.footer{background:linear-gradient(90deg,var(--black),#0d0d0d);color:var(--gold);padding:28px 0;margin-top:28px;border-top:3px solid rgba(255,215,0,0.08)}
+.footer a{color:var(--gold);text-decoration:none}
+
+/* utility */
+.center{text-align:center}
+.muted{color:var(--muted)}
+
+/* subtle entrance animation for cards */
+@keyframes riseFade {
+  from { transform: translateY(8px); opacity: 0; }
+  to   { transform: translateY(0); opacity: 1; }
+}
+.card, .team-member, .news-card { animation: riseFade .42s ease both; }
+
+/* responsive */
+@media (max-width:1000px){
+  .hero-grid{grid-template-columns:1fr}
+  .grid-2{grid-template-columns:1fr}
+  .nav ul{display:none}
+  .hamburger{display:block}
+}
+@media (max-width:600px){
+  .stats{justify-content:center}
+  .form .form-row{grid-template-columns:1fr}
+  .grid-3{grid-template-columns:1fr}
+}
