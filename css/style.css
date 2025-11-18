@@ -153,8 +153,12 @@ a:focus{outline:3px solid rgba(255,215,0,0.20);outline-offset:4px;border-radius:
 .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
 
 /* team */
-.team-member{text-align:center;padding:18px;border-radius:12px;background:linear-gradient(180deg,#111,#0b0b0b);color:var(--gold)}
-.team-member img{width:120px;height:120px;border-radius:50%;object-fit:cover;border:5px solid rgba(255,215,0,0.08);margin-bottom:12px}
+.team-member{text-align:left;padding:18px;border-radius:12px;background:linear-gradient(180deg,#111,#0b0b0b);color:var(--gold);display:flex;gap:18px;align-items:flex-start}
+.team-member img{width:140px;height:140px;border-radius:12px;object-fit:cover;border:5px solid rgba(255,215,0,0.08);flex:0 0 140px}
+.team-member .info{min-width:0}
+.team-member .info strong{display:block;font-size:18px;margin-bottom:6px}
+.team-member .info .small{margin-bottom:8px}
+.team-member .info p{margin:0;color:var(--soft);line-height:1.5}
 
 /* news */
 .news-card{display:flex;gap:12px;align-items:flex-start;padding:12px;background:var(--soft);border-radius:12px;box-shadow:var(--shadow-soft)}
