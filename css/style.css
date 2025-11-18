@@ -37,7 +37,7 @@ body{
     /* deeper metallic glint */
     radial-gradient(circle at 86% 92%, rgb(224, 223, 219), transparent 12%),
     /* darker base gradient for depth */
-    linear-gradient(180deg, #945503 0%, #e99903 30%, #f1a204 100%);
+    linear-gradient(180deg, #ecc1048f 0%, #e999039d 30%, #f1a20498 100%);
   -webkit-font-smoothing:antialiased;
   -moz-osx-font-smoothing:grayscale;
   line-height:1.6;
@@ -145,6 +145,28 @@ a:focus{outline:3px solid rgba(255,215,0,0.20);outline-offset:4px;border-radius:
 }
 .section-head{text-align:center;margin-bottom:20px}
 .section-head h2{font-family:var(--ff-serif);font-size:24px;margin:0}
+
+/* About page white card for improved readability on dark background */
+.about-card{
+  background: #ffffff; /* solid white for maximum contrast */
+  color: #111111; /* dark text for readability */
+  padding: 28px; 
+  border-radius: 14px;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.25);
+  margin-bottom: 18px;
+}
+.about-card .section-head h2{color:var(--black); font-size:28px}
+.about-card h3{color:var(--black); margin-top:18px}
+.about-card p{color:#2a2a2a}
+.about-card a.btn{color:var(--black)}
+
+/* Slight inner layout tweak so content doesn't run edge-to-edge on narrow screens */
+.about-card .two-col{gap:20px}
+
+@media (max-width:900px){
+  .about-card{padding:20px}
+  .about-card .section-head h2{font-size:22px}
+}
 
 /* grids & cards */
 .card{background:var(--soft);padding:18px;border-radius:14px;box-shadow:var(--shadow-soft)}
